@@ -109,7 +109,7 @@ The system leverages **feature-engineered time-series regression (Random Forest)
 ┌─────────────────────────────────────────────────────────────────┐
 │                  FEATURE ENGINEERING                            │
 │   • Lag features (lag1, lag2, lag3)                             │
-│   • Rolling statistics (mean, % change)                        │
+│   • Rolling statistics (mean, % change)                         │
 │   • Growth slope (linear regression on window)                  │
 │   • Temporal encoding (months_since_start)                      │
 └───────────────────────────┬─────────────────────────────────────┘
@@ -119,7 +119,7 @@ The system leverages **feature-engineered time-series regression (Random Forest)
 │              MODEL TRAINING (Random Forest)                     │
 │   • 80/20 Train-Test Split                                      │
 │   • n_estimators=100                                            │
-│   • R² ≈ 0.99 | MAE ≈ 1 EV                                     │
+│   • R² ≈ 0.99 | MAE ≈ 1 EV                                      │
 └───────────────────────────┬─────────────────────────────────────┘
                             │
                             ▼
