@@ -411,11 +411,6 @@ ev-adoption-forecasting/
 
 ---
 
-## 📜 License
-
-This project is developed for **academic and research purposes** as part of the Edunet Foundation × Shell Internship Program. Redistribution for commercial purposes is not permitted without explicit consent.
-
----
 
 ## ⭐ Final Note
 
