@@ -1,0 +1,43 @@
+{
+  "model_type": "RandomForestRegressor",
+  "n_estimators": 200,
+  "max_depth": 15,
+  "features": [
+    "months_since_start",
+    "county_encoded",
+    "ev_total_lag1",
+    "ev_total_lag2",
+    "ev_total_lag3",
+    "ev_total_roll_mean_3",
+    "ev_total_pct_change_1",
+    "ev_total_pct_change_3",
+    "ev_growth_slope"
+  ],
+  "train_size": 10058,
+  "test_size": 2515,
+  "train_metrics": {
+    "r2": 0.999,
+    "mae": 0.0078,
+    "rmse": 0.0548,
+    "mape": 0.26
+  },
+  "test_metrics": {
+    "r2": 0.9395,
+    "mae": 0.0637,
+    "rmse": 0.5008,
+    "mape": 2.09
+  },
+  "feature_importances": {
+    "months_since_start": 0.0025,
+    "county_encoded": 0.0007,
+    "ev_total_lag1": 0.1501,
+    "ev_total_lag2": 0.2911,
+    "ev_total_lag3": 0.3048,
+    "ev_total_roll_mean_3": 0.0036,
+    "ev_total_pct_change_1": 0.0431,
+    "ev_total_pct_change_3": 0.094,
+    "ev_growth_slope": 0.11
+  },
+  "cv_r2_mean": 0.9817,
+  "cv_r2_std": 0.0141
+}
