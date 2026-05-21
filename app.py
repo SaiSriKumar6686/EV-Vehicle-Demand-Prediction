@@ -762,34 +762,32 @@ elif page == "🤖  Model":
             st.dataframe(fi_df, use_container_width=True, hide_index=True)
 
     with tab_method:
-        st.markdown(f"""
-        <div class="glass-card">
-            <h3 style="color:{COLORS['accent_light']}; margin-top:0;">Algorithm</h3>
-            <p><strong>Random Forest Regressor</strong> — an ensemble of 200 decision trees, each trained on a bootstrapped
-            subset of the data. Predictions are averaged across all trees, providing robust estimates and
-            natural uncertainty quantification.</p>
+        st.markdown(f"""<div class="glass-card">
+<h3 style="color:{COLORS['accent_light']}; margin-top:0;">Algorithm</h3>
+<p><strong>Random Forest Regressor</strong> — an ensemble of 200 decision trees, each trained on a bootstrapped
+subset of the data. Predictions are averaged across all trees, providing robust estimates and
+natural uncertainty quantification.</p>
 
-            <h3 style="color:{COLORS['accent_light']};">Feature Engineering</h3>
-            <ul>
-                <li><strong>Lag Features</strong> (lag1, lag2, lag3): Past 3 months of EV registrations capture recent momentum</li>
-                <li><strong>Rolling Mean</strong>: 3-month moving average smooths short-term noise</li>
-                <li><strong>Percentage Changes</strong>: 1-month and 3-month growth rates capture acceleration/deceleration</li>
-                <li><strong>Growth Slope</strong>: Linear regression slope over recent cumulative values captures long-term trend</li>
-                <li><strong>County Encoding</strong>: Label-encoded county identifier captures county-specific baseline adoption levels</li>
-                <li><strong>Temporal Feature</strong>: Months since start of data captures time progression</li>
-            </ul>
+<h3 style="color:{COLORS['accent_light']};">Feature Engineering</h3>
+<ul>
+<li><strong>Lag Features</strong> (lag1, lag2, lag3): Past 3 months of EV registrations capture recent momentum</li>
+<li><strong>Rolling Mean</strong>: 3-month moving average smooths short-term noise</li>
+<li><strong>Percentage Changes</strong>: 1-month and 3-month growth rates capture acceleration/deceleration</li>
+<li><strong>Growth Slope</strong>: Linear regression slope over recent cumulative values captures long-term trend</li>
+<li><strong>County Encoding</strong>: Label-encoded county identifier captures county-specific baseline adoption levels</li>
+<li><strong>Temporal Feature</strong>: Months since start of data captures time progression</li>
+</ul>
 
-            <h3 style="color:{COLORS['accent_light']};">Forecasting Method</h3>
-            <p><strong>Autoregressive rollforward:</strong> Each monthly prediction feeds back into the feature
-            calculations for the next month, creating a chain of dependent predictions. This naturally
-            captures compounding growth effects.</p>
+<h3 style="color:{COLORS['accent_light']};">Forecasting Method</h3>
+<p><strong>Autoregressive rollforward:</strong> Each monthly prediction feeds back into the feature
+calculations for the next month, creating a chain of dependent predictions. This naturally
+captures compounding growth effects.</p>
 
-            <h3 style="color:{COLORS['accent_light']};">Confidence Intervals</h3>
-            <p>The 80% confidence band is derived from the 10th and 90th percentiles of individual
-            tree predictions within the Random Forest ensemble, providing a natural measure of
-            prediction uncertainty without requiring additional bootstrapping.</p>
-        </div>
-        """, unsafe_allow_html=True)
+<h3 style="color:{COLORS['accent_light']};">Confidence Intervals</h3>
+<p>The 80% confidence band is derived from the 10th and 90th percentiles of individual
+tree predictions within the Random Forest ensemble, providing a natural measure of
+prediction uncertainty without requiring additional bootstrapping.</p>
+</div>""", unsafe_allow_html=True)
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -803,34 +801,32 @@ elif page == "ℹ️  About":
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown(f"""
-    <div class="glass-card">
-        <h3 style="color:{COLORS['accent_light']}; margin-top:0;">📋 Project Overview</h3>
-        <p>This application forecasts Electric Vehicle (EV) adoption across US counties using
-        machine learning. It ingests historical registration data, engineers temporal features,
-        and uses a Random Forest model to generate multi-year forecasts with confidence intervals.</p>
+    st.markdown(f"""<div class="glass-card">
+<h3 style="color:{COLORS['accent_light']}; margin-top:0;">📋 Project Overview</h3>
+<p>This application forecasts Electric Vehicle (EV) adoption across US counties using
+machine learning. It ingests historical registration data, engineers temporal features,
+and uses a Random Forest model to generate multi-year forecasts with confidence intervals.</p>
 
-        <h3 style="color:{COLORS['accent_light']};">📊 Data Source</h3>
-        <p>US EV registration data spanning <strong>{df['Date'].min().strftime('%B %Y')}</strong> to
-        <strong>{df['Date'].max().strftime('%B %Y')}</strong>, covering
-        <strong>{df['County'].nunique()}</strong> counties across
-        <strong>{df['State'].nunique()}</strong> states and territories.
-        The dataset includes both Battery Electric Vehicles (BEVs) and
-        Plug-in Hybrid Electric Vehicles (PHEVs).</p>
+<h3 style="color:{COLORS['accent_light']};">📊 Data Source</h3>
+<p>US EV registration data spanning <strong>{df['Date'].min().strftime('%B %Y')}</strong> to
+<strong>{df['Date'].max().strftime('%B %Y')}</strong>, covering
+<strong>{df['County'].nunique()}</strong> counties across
+<strong>{df['State'].nunique()}</strong> states and territories.
+The dataset includes both Battery Electric Vehicles (BEVs) and
+Plug-in Hybrid Electric Vehicles (PHEVs).</p>
 
-        <h3 style="color:{COLORS['accent_light']};">🛠️ Technology Stack</h3>
-        <ul>
-            <li><strong>Frontend:</strong> Streamlit with custom CSS theming</li>
-            <li><strong>ML Model:</strong> scikit-learn RandomForestRegressor</li>
-            <li><strong>Visualization:</strong> Plotly (interactive charts)</li>
-            <li><strong>Data Processing:</strong> pandas, NumPy</li>
-            <li><strong>Deployment:</strong> Docker-ready, Streamlit Cloud compatible</li>
-        </ul>
+<h3 style="color:{COLORS['accent_light']};">🛠️ Technology Stack</h3>
+<ul>
+<li><strong>Frontend:</strong> Streamlit with custom CSS theming</li>
+<li><strong>ML Model:</strong> scikit-learn RandomForestRegressor</li>
+<li><strong>Visualization:</strong> Plotly (interactive charts)</li>
+<li><strong>Data Processing:</strong> pandas, NumPy</li>
+<li><strong>Deployment:</strong> Docker-ready, Streamlit Cloud compatible</li>
+</ul>
 
-        <h3 style="color:{COLORS['accent_light']};">👤 Author</h3>
-        <p>Developed by <strong>SaiSriKumar Parimi</strong></p>
-    </div>
-    """, unsafe_allow_html=True)
+<h3 style="color:{COLORS['accent_light']};">👤 Author</h3>
+<p>Developed by <strong>SaiSriKumar Parimi</strong></p>
+</div>""", unsafe_allow_html=True)
 
     # Data coverage stats
     st.markdown('<div class="section-header">Data Coverage</div>', unsafe_allow_html=True)
